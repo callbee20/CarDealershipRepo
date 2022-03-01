@@ -4,6 +4,7 @@
  *CIS175 - Fall 2021
  * Feb 23, 2022
  */
+
 public class CarDealershipClass {
 
 	private int lotId;
