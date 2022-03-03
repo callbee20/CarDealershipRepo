@@ -42,13 +42,11 @@ public class VehicleModel extends Vehicle{
 	@Column(name="Price")
 	private double price;
 	
-	//not sure if should inherit/extend the Vehicle class or just take it as param like this
 	@Column(name="DateAdded")
 	private LocalDate addedToLot;
 
-	//TODO implement a way to hold the date/time of this added to warehouse? as a way for the time conversion requirement
 	public VehicleModel() {
-
+		super();
 	}
 	public VehicleModel(String model, String make, String driveTrain, double price, LocalDate addedToLot) {
 		this.model = model;
@@ -94,9 +92,11 @@ public class VehicleModel extends Vehicle{
 	public void setAddedToLot(LocalDate addedToLot) {
 		this.addedToLot = addedToLot;
 	}
+	//removed some variables just to make the project simpler
 	@Override
 	public String toString() {
-		return "VehicleModel [brand=" + brand + ", model=" + model + ", mileage=" + mileage + ", newCondition="
-				+ newCondition + ", warrentyStatus=" + warrentyStatus + ", doorNumber=" + doorNumber + "]";
+		return "VehicleModel [brand=" + make + ", model=" + model + ", dateAdded=" + addedToLot.toString() + 
+				", price=" + price + ", driveTrain=" + driveTrain;
+	}
 	}
 

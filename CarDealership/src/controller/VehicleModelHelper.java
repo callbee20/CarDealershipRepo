@@ -16,7 +16,7 @@ public class VehicleModelHelper {
 	public VehicleModelHelper() {
 		
 	}
-	
+	//TODO other functions like delete/edit
 	public void addModel(VehicleModel vm) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
