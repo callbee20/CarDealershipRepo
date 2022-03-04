@@ -1,4 +1,4 @@
-
+package model;
 /**
  * @author Carson Allbee callbee
  *CIS175 - Fall 2021
