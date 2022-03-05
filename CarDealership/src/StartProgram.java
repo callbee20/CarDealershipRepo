@@ -48,7 +48,7 @@ public class StartProgram {
 
 		private static void editAnItem() {
 			// TODO Auto-generated method stub
-			/*System.out.println("How would you like to search? ");
+			System.out.println("How would you like to search? ");
 			System.out.println("1 : Search by Model");
 			System.out.println("2 : Search by Make");
 			int searchBy = in.nextInt();
@@ -57,12 +57,12 @@ public class StartProgram {
 			if (searchBy == 1) {
 				System.out.print("Enter the model name: ");
 				String model = in.nextLine();
-				foundItems = vmh.searchForItemById(model);
+				foundItems = vmh.searchForVehicleByModel(model);
 				
 			} else {
 				System.out.print("Enter the make: ");
 				String make = in.nextLine();
-				foundItems = vmh.searchForItemById(make);
+				foundItems = vmh.searchForVehicleByMake(make);
 				
 
 			}
@@ -75,29 +75,29 @@ public class StartProgram {
 				System.out.print("Which ID to edit: ");
 				int idToEdit = in.nextInt();
 
-				VehicleModel toEdit = vmh.searchForItemById(idToEdit);
-				System.out.println("Retrieved " + toEdit.getItem() + " from " + toEdit.getStore());
-				System.out.println("1 : Update Store");
-				System.out.println("2 : Update Item");
+				VehicleModel toEdit = vmh.searchForVehicleById(idToEdit);
+				System.out.println("Retrieved " + toEdit.getId() + " from " + toEdit.getMake());
+				System.out.println("1 : Update Make");
+				System.out.println("2 : Update Model");
 				int update = in.nextInt();
 				in.nextLine();
 
 				if (update == 1) {
-					System.out.print("New Store: ");
-					String newStore = in.nextLine();
-					toEdit.setStore(newStore);
+					System.out.print("New Make: ");
+					String newMake = in.nextLine();
+					toEdit.setMake(newMake);
 				} else if (update == 2) {
 					System.out.print("New Item: ");
-					String newItem = in.nextLine();
-					toEdit.setItem(newItem);
+					String newModel = in.nextLine();
+					toEdit.setModel(newModel);
 				}
 
-				lih.updateItem(toEdit);
+				vmh.updateVehicle(toEdit);
 
 			} else {
 				System.out.println("---- No results found");
 			}
-*/
+
 		}
 
 		public static void main(String[] args) {
@@ -129,7 +129,7 @@ public class StartProgram {
 				} else if (selection == 4) {
 					viewTheList();
 				} else {
-					//lih.cleanUp();
+					vmh.cleanUp();
 					System.out.println("   Goodbye!   ");
 					goAgain = false;
 				}
