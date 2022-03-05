@@ -51,4 +51,46 @@ public class VehicleModelHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+	public List<VehicleModel> searchForVehicleByMake(String make) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<VehicleModel> typedQuery = em.createQuery("select vm from VehicleModel vm where vm.make = :selectedMake", VehicleModel.class);
+		typedQuery.setParameter("selectedMake", make);
+		List<VehicleModel> foundMake = typedQuery.getResultList();
+		em.close();
+		
+		return foundMake;
+	}
+	
+	public List<VehicleModel> searchForVehicleByModel(String model) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<VehicleModel> typedQuery = em.createQuery("select vm from VehicleModel vm where vm.model =:selectedModel", VehicleModel.class);
+		typedQuery.setParameter("selectedModel", model);
+		List<VehicleModel> foundModel = typedQuery.getResultList();
+		em.close();
+		
+		return foundModel;
+	}
+	
+	public VehicleModel searchForVehicleById(int idToEdit) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		VehicleModel found = em.find(VehicleModel.class, idToEdit);
+		em.close();
+		return found;
+	}
+	
+	public void updateVehicle(VehicleModel toEdit) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	public void cleanUp() {
+		emfactory.close();
+	}
 }
