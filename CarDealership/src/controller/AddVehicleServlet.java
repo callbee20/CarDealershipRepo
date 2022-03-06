@@ -34,12 +34,12 @@ public class AddVehicleServlet extends HttpServlet {
 		String make = request.getParameter("make");
 		String model = request.getParameter("model");
 		String driveTrain = request.getParameter("driveTrain");
-		//double price = request.getParameter("price");
-		//LocalDate dateAdded = request.getParameter("dateParameter");
+		String price = request.getParameter("price");
+		String dateAdded = request.getParameter("dateAdded");
 		
-		//VehicleModel vm = new VehicleModel(make, model, driveTrain, price, dateAdded);
+		VehicleModel vm = new VehicleModel(make, model, driveTrain, price, dateAdded);
 		VehicleModelHelper vmh = new VehicleModelHelper();
-		//vmh.insertItem(vm);
+		vmh.addModel(vm);
 		
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
