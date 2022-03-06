@@ -22,8 +22,9 @@ public class StartProgram {
 			System.out.println("Enter a drive train ex.(4wd): ");
 			String driveTrain = in.nextLine();
 			System.out.println("Enter a price for the vehicle: ");
-			double price = in.nextDouble();
-			LocalDate addedToLot = LocalDate.now();
+			String price = in.nextLine();
+			System.out.println("Enter the date the vehicle was added (mm/dd/yy): ");
+			String addedToLot = in.nextLine();
 
 			VehicleModel toAdd = new VehicleModel(model, make, driveTrain, price, addedToLot);
 			vmh.addModel(toAdd);
@@ -38,8 +39,9 @@ public class StartProgram {
 			System.out.println("Enter a drive train ex.(4wd): ");
 			String driveTrain = in.nextLine();
 			System.out.println("Enter a price for the vehicle: ");
-			double price = in.nextDouble();
-			LocalDate addedToLot = LocalDate.now();
+			String price = in.nextLine();
+			System.out.println("Enter the date the vehicle was added (mm/dd/yy): ");
+			String addedToLot = in.nextLine();
 			
 			VehicleModel toDelete = new VehicleModel(model, make, driveTrain, price, addedToLot);
 			vmh.deleteVehicle(toDelete);

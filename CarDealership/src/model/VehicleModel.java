@@ -40,15 +40,15 @@ public class VehicleModel extends Vehicle{
 	
 	//base sticker price of vehicle
 	@Column(name="Price")
-	private double price;
+	private String price;
 	
 	@Column(name="DateAdded")
-	private LocalDate addedToLot;
+	private String addedToLot;
 
 	public VehicleModel() {
 		super();
 	}
-	public VehicleModel(String model, String make, String driveTrain, double price, LocalDate addedToLot) {
+	public VehicleModel(String model, String make, String driveTrain, String price, String addedToLot) {
 		this.model = model;
 		this.make = make;
 		this.driveTrain = driveTrain;
@@ -80,16 +80,16 @@ public class VehicleModel extends Vehicle{
 	public void setDriveTrain(String driveTrain) {
 		this.driveTrain = driveTrain;
 	}
-	public double getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
-	public LocalDate getAddedToLot() {
+	public String getAddedToLot() {
 		return addedToLot;
 	}
-	public void setAddedToLot(LocalDate addedToLot) {
+	public void setAddedToLot(String addedToLot) {
 		this.addedToLot = addedToLot;
 	}
 	//removed some variables just to make the project simpler

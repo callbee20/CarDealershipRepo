@@ -15,7 +15,7 @@ public class FillDB {
 	//database cardealership
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		VehicleModel vm = new VehicleModel("ford", "fusion", "rwd", 15000, LocalDate.now());
+		VehicleModel vm = new VehicleModel("ford", "fusion", "rwd", "15000", "10/08/20");
 		VehicleModelHelper vmh = new VehicleModelHelper();
 		
 		vmh.addModel(vm);
