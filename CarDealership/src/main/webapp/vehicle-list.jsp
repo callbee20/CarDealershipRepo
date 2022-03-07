@@ -17,6 +17,7 @@
 	<td>${currentitem.make}</td>
 	<td>${currentitem.driveTrain}</td>
 	<td>${currentitem.price}</td>
+	<td>${currentitem.addedToLot}</td>
 </tr>
 </c:forEach>
 </table>

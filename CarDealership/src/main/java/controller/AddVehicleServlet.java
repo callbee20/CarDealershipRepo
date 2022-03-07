@@ -37,8 +37,9 @@ public class AddVehicleServlet extends HttpServlet {
 		String price = request.getParameter("price");
 		String dateAdded = request.getParameter("dateAdded");
 		
-		VehicleModel vm = new VehicleModel(make, model, driveTrain, price, dateAdded);
 		VehicleModelHelper vmh = new VehicleModelHelper();
+		//always pass the date thru the vmh converter
+		VehicleModel vm = new VehicleModel(make, model, driveTrain, price, vmh.stringToDate(dateAdded));
 		vmh.addModel(vm);
 		
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);

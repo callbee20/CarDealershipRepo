@@ -1,11 +1,15 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.VehicleModel;
 
 /**
  * Servlet implementation class ViewAllVehiclesServlet
@@ -28,10 +32,11 @@ public class ViewAllVehiclesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		VehicleModelHelper vmh = new VehicleModelHelper();
-		request.setAttribute("allVehicles", vmh.showAllVehicles());
+		List<VehicleModel> vms = vmh.showAllVehicles();
+		request.setAttribute("allVehicles", vms);
 		String path = "/vehicle-list.jsp";
-		if(vmh.showAllVehicles().isEmpty()) {
-			path = "/index.html";
+		if(vms.isEmpty()) {
+			path = "/vehicle-list.jsp";
 		}
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 

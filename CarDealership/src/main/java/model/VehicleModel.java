@@ -9,10 +9,13 @@ package model;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import controller.LocalDateAttributeConverter;
 
 
 @Entity
@@ -43,12 +46,13 @@ public class VehicleModel extends Vehicle{
 	private String price;
 	
 	@Column(name="DateAdded")
-	private String addedToLot;
+	@Convert(converter = LocalDateAttributeConverter.class)
+	private LocalDate addedToLot;
 
 	public VehicleModel() {
 		super();
 	}
-	public VehicleModel(String model, String make, String driveTrain, String price, String addedToLot) {
+	public VehicleModel(String model, String make, String driveTrain, String price, LocalDate addedToLot) {
 		this.model = model;
 		this.make = make;
 		this.driveTrain = driveTrain;
@@ -86,10 +90,10 @@ public class VehicleModel extends Vehicle{
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getAddedToLot() {
+	public LocalDate getAddedToLot() {
 		return addedToLot;
 	}
-	public void setAddedToLot(String addedToLot) {
+	public void setAddedToLot(LocalDate addedToLot) {
 		this.addedToLot = addedToLot;
 	}
 	//removed some variables just to make the project simpler
