@@ -22,7 +22,7 @@ import controller.LocalDateAttributeConverter;
  */
 @Entity
 @Table(name="Dealerships")
-public class CarDealershipClass {
+public class CarDealership {
 	
 	@Id
 	@GeneratedValue
@@ -38,11 +38,11 @@ public class CarDealershipClass {
 	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	private List<VehicleModel> vehicleList;
 	
-	public CarDealershipClass() {
+	public CarDealership() {
 		super();
 	}
 	
-	public CarDealershipClass(int lotId, String dealershipName, String city, LocalDate established) {
+	public CarDealership(int lotId, String dealershipName, String city, LocalDate established) {
 		super();
 		this.lotId = lotId;
 		this.dealershipName = dealershipName;
@@ -50,7 +50,7 @@ public class CarDealershipClass {
 		this.established = established;
 	}
 	
-	public CarDealershipClass(String dealershipName, String city, LocalDate established) {
+	public CarDealership(String dealershipName, String city, LocalDate established) {
 		super();
 		this.dealershipName = dealershipName;
 		this.city = city;

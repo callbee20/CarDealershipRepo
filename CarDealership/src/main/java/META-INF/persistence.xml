@@ -4,7 +4,7 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.VehicleModel</class>
 		<class>controller.LocalDateAttributeConverter</class>
-		<class>model.CarDealershipClass</class>
+		<class>model.CarDealership</class>
 		<properties>
 			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

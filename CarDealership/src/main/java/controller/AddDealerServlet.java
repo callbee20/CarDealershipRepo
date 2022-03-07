@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.CarDealership;
 import model.VehicleModel;
 
 /**
@@ -30,15 +31,14 @@ public class AddDealerServlet extends HttpServlet {
     //TODO create a jsp page for this that gets linked from the index, and change index so it can redirect to either dealership or vehicle options
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String lotID = request.getParameter("make");
-		String dealershipName = request.getParameter("model");
-		String city = request.getParameter("driveTrain");
-		String established = request.getParameter("price");
+		String dealershipName = request.getParameter("name");
+		String city = request.getParameter("city");
+		String established = request.getParameter("date");
 		
-		VehicleModelHelper vmh = new VehicleModelHelper();
+		CarDealershipHelper carHelp = new CarDealershipHelper();
 		//always pass the date thru the vmh converter
-		VehicleModel vm = new VehicleModel(make, model, driveTrain, price, vmh.stringToDate(dateAdded));
-		vmh.addModel(vm);
+		CarDealership lot = new CarDealership(dealershipName, city, carHelp.stringToDate(established));
+		carHelp.addLot(lot);
 		
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
