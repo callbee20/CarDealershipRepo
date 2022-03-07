@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -53,10 +54,11 @@ public class VehicleModel{
 	@Convert(converter = LocalDateAttributeConverter.class)
 	private LocalDate addedToLot;
 
-	@Column(name="Dealership")
+	/*@JoinColumn(name="Dealership")
+	//MAYBE JUST MERGE THE NAMES AS A COLUMN NOT OBJECT
 	@OneToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	private CarDealership dealer;
-	//TODO figure out how to link the two ^
+	private String dealer;
+	//TODO figure out how to link the two ^*/
 	public VehicleModel() {
 		super();
 	}
