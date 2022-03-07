@@ -54,10 +54,7 @@ public class VehicleModel{
 	@Convert(converter = LocalDateAttributeConverter.class)
 	private LocalDate addedToLot;
 
-	/*@JoinColumn(name="Dealership")
-	//MAYBE JUST MERGE THE NAMES AS A COLUMN NOT OBJECT
-	@OneToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
-	private String dealer;
+	
 	//TODO figure out how to link the two ^*/
 	public VehicleModel() {
 		super();

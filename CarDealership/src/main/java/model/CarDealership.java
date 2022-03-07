@@ -36,8 +36,7 @@ public class CarDealership {
 	@Column(name="established")
 	@Convert(converter = LocalDateAttributeConverter.class)
 	private LocalDate established;
-	@Column(name="Vehicles")
-	//@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+	@JoinColumn(name="Vehicles")
 	private List<VehicleModel> vehicleList;
 	
 	public CarDealership() {

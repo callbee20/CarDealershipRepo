@@ -49,7 +49,7 @@ public class AddVehicleServlet extends HttpServlet {
 		VehicleModel vm = new VehicleModel(make, model, driveTrain, price, vmh.stringToDate(dateAdded));
 		vmh.addModel(vm);
 		
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/modelIndex.jsp").forward(request, response);
 	}
 
 }
