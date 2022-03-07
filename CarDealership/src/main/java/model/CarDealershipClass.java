@@ -1,33 +1,61 @@
 package model;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import controller.LocalDateAttributeConverter;
+
 /**
  * @author Carson Allbee callbee
  *CIS175 - Fall 2021
  * Feb 23, 2022
  */
-
+@Entity
+@Table(name="Dealerships")
 public class CarDealershipClass {
-
-	private int lotId;
-	private String dealershipName;
-	private String city;
 	
+	@Id
+	@GeneratedValue
+	@Column(name="ID")
+	private int lotId;
+	@Column(name="Name")
+	private String dealershipName;
+	@Column(name="City")
+	private String city;
+	@Column(name="established")
+	@Convert(converter = LocalDateAttributeConverter.class)
+	private LocalDate established;
+	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+	private List<VehicleModel> vehicleList;
 	
 	public CarDealershipClass() {
 		super();
 	}
 	
-	public CarDealershipClass(int lotId, String dealershipName, String city) {
+	public CarDealershipClass(int lotId, String dealershipName, String city, LocalDate established) {
 		super();
 		this.lotId = lotId;
 		this.dealershipName = dealershipName;
 		this.city = city;
+		this.established = established;
 	}
 	
-	public CarDealershipClass(String dealershipName, String city) {
+	public CarDealershipClass(String dealershipName, String city, LocalDate established) {
 		super();
 		this.dealershipName = dealershipName;
 		this.city = city;
+		this.established = established;
+		//TODO set up converter for this class just like the one in vehiclemodelhelper
 	}
 	
 	/**
