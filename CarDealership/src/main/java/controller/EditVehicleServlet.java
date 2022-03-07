@@ -52,7 +52,7 @@ public class EditVehicleServlet extends HttpServlet {
 		vehicleToUpdate.setMake(make);
 		vehicleToUpdate.setDriveTrain(driveTrain);
 		vehicleToUpdate.setPrice(price);
-		vehicleToUpdate.setAddedToLot(dateAdded);
+		vehicleToUpdate.setAddedToLot(vmh.stringToDate(dateAdded));
 		
 		vmh.updateVehicle(vehicleToUpdate);
 		
