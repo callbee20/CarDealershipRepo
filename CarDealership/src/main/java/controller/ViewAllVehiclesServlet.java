@@ -33,6 +33,8 @@ public class ViewAllVehiclesServlet extends HttpServlet {
 		if(vmh.showAllVehicles().isEmpty()) {
 			path = "/index.html";
 		}
+		getServletContext().getRequestDispatcher(path).forward(request, response);
+
 	}
 
 	/**

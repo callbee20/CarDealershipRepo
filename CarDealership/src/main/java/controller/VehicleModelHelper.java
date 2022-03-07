@@ -4,6 +4,8 @@
  * Mar 2, 2022
  */
 package controller;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -89,7 +91,11 @@ public class VehicleModelHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
-	
+	public LocalDate stringToDate(String date) {
+		//accepts mm/dd/yyyy to convert to localdate for use in converter then table
+		LocalDate newDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+		return newDate;
+	}
 	public void cleanUp() {
 		emfactory.close();
 	}
