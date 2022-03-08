@@ -7,6 +7,11 @@ package controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import model.DealershipCatalog;
 
 public class DealershipHelper {
 	public DealershipHelper() {
@@ -18,4 +23,10 @@ public class DealershipHelper {
 	 * converter then table LocalDate newDate = LocalDate.parse(date,
 	 * DateTimeFormatter.ofPattern("MM/dd/yyyy")); return newDate; }
 	 */
+	public List<CarDealership> getCatalogs() {
+		EntityManager em = emfactory.createEntityManager();
+		List<DealershipCatalog> allCatalogs = em.createQuery("SELECT c FROM DealershipCatalog c").getResultList();
+		return allCatalogs;
+	}
+	
 }

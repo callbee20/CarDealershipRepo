@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.VehicleModel;
-
 /**
- * Servlet implementation class EditVehicleServlet
+ * Servlet implementation class ViewAllDealersServlet
  */
-@WebServlet("/editVehicleServlet")
-public class EditVehicleServlet extends HttpServlet {
+@WebServlet("/viewAllDealersServlet")
+public class ViewAllDealersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditVehicleServlet() {
+    public ViewAllDealersServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,25 +35,8 @@ public class EditVehicleServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 		
-		VehicleModelHelper vmh = new VehicleModelHelper();
-		String model = request.getParameter("model");
-		String make = request.getParameter("make");
-		String driveTrain = request.getParameter("driveTrain");
-		String price = request.getParameter("price");
-		String dateAdded = request.getParameter("dateAdded");
-		Integer tempId = Integer.parseInt(request.getParameter("id"));
-		
-		VehicleModel vehicleToUpdate = vmh.searchForVehicleById(tempId);
-		vehicleToUpdate.setModel(model);
-		vehicleToUpdate.setMake(make);
-		vehicleToUpdate.setDriveTrain(driveTrain);
-		vehicleToUpdate.setPrice(price);
-		vehicleToUpdate.setAddedToLot(dateAdded);
-		
-		vmh.updateVehicle(vehicleToUpdate);
-		
-		getServletContext().getRequestDispatcher("/viewAllVehiclesServlet").forward(request, response);
 	}
 
 }

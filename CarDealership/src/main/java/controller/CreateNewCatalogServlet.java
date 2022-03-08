@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -37,15 +38,17 @@ public class CreateNewCatalogServlet extends HttpServlet {
 		VehicleModelHelper vmh = new VehicleModelHelper();
 		String catalogName = request.getParameter("dealershipCatalogName");
 		System.out.println("Catalog Name: " + catalogName);
-		String dealershipName = request.getParameter("dealership");
-		String[] selectedVehicles = request.getParameterValues("allVehiclesToAdd");
+		String dealershipName = request.getParameter("cardealership");
+		//String[] selectedVehicles = request.getParameterValues("allVehiclesToAdd");
+		List<String> selectedVehicles = Arrays.asList(request.getParameterValues("allVehiclesToAdd"));
 		
 		List<VehicleModel> selectedVehiclesInList = new ArrayList<VehicleModel>();
 		
-		if(selectedVehicles != null && selectedVehicles.length > 0) {
-			for(int i = 0; i<selectedVehicles.length; i++) {
-				System.out.println(selectedVehicles[i]);
-				VehicleModel v = vmh.searchForVehicleById(Integer.parseInt(selectedVehicles[i]));
+		int size = selectedVehicles.size();
+		if(selectedVehicles != null && size > 0) {
+			for(int i = 0; i<size; i++) {
+				System.out.println(selectedVehicles.get(i));
+				VehicleModel v = vmh.searchForVehicleById(Integer.parseInt(selectedVehicles.get(i)));
 				selectedVehiclesInList.add(v);
 			}
 		}

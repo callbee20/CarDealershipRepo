@@ -17,5 +17,7 @@ Date Added (mm/dd/yyyy): <input type= "text" name= "dateAdded"><br/>
 </form><br />
 <a href= "viewAllVehiclesServlet">View the complete list</a><br/>
 <a href= "index.html">Return to home page</a>
+<a href= "viewAllCatalogsServlet">View all catalogs</a><br />
+<a href= "addVehiclesForCatalogServlet">Create a new catalog using current car</a>
 </body>
 </html>

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @author Carson Allbee callbee
@@ -16,6 +17,7 @@ import javax.persistence.OneToMany;
  * Mar 7, 2022
  */
 @Entity
+@Table(name="catalogs")
 public class DealershipCatalog {
 
 	@Id
@@ -23,7 +25,7 @@ public class DealershipCatalog {
 	private int id;
 	private String dealershipCatalogName;
 	@ManyToOne(cascade=CascadeType.PERSIST)
-	private CarDealership dealership;
+	private CarDealership cardealership;
 	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	private List<VehicleModel> listOfModels;
 	
@@ -34,19 +36,19 @@ public class DealershipCatalog {
 	public DealershipCatalog(int id, String dealershipCatalogName, CarDealership dealership, List<VehicleModel> listOfModels) {
 		this.id = id;
 		this.dealershipCatalogName = dealershipCatalogName;
-		this.dealership = dealership;
+		this.cardealership = dealership;
 		this.listOfModels = listOfModels;
 	}
 	
 	public DealershipCatalog(String dealershipCatalogName, CarDealership dealership, List<VehicleModel> listOfModels) {
 		this.dealershipCatalogName = dealershipCatalogName;
-		this.dealership = dealership;
+		this.cardealership = dealership;
 		this.listOfModels = listOfModels;
 	}
 	
 	public DealershipCatalog(String dealershipCatalogName, CarDealership dealership) {
 		this.dealershipCatalogName = dealershipCatalogName;
-		this.dealership = dealership;
+		this.cardealership = dealership;
 	}
 	
 	
@@ -78,13 +80,13 @@ public class DealershipCatalog {
 	 * @return the dealership
 	 */
 	public CarDealership getDealership() {
-		return dealership;
+		return cardealership;
 	}
 	/**
 	 * @param dealership the dealership to set
 	 */
 	public void setDealership(CarDealership dealership) {
-		this.dealership = dealership;
+		this.cardealership = dealership;
 	}
 	/**
 	 * @return the listOfModels
@@ -100,7 +102,7 @@ public class DealershipCatalog {
 	}
 	@Override
 	public String toString() {
-		return "DealershipCatalog [id=" + id + ", dealershipCatalogName=" + dealershipCatalogName + ", dealership=" + dealership
+		return "DealershipCatalog [id=" + id + ", dealershipCatalogName=" + dealershipCatalogName + ", dealership=" + cardealership
 				+ ", listOfModels=" + listOfModels + "]";
 	}
 	

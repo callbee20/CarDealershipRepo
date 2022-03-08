@@ -13,7 +13,6 @@ City: <input type= "text" name= "city"><br/>
 Date Established (mm/dd/yyyy): <input type= "text" name= "date"><br/>
 <input type= "submit" value= "Create dealership">
 </form><br />
-<a href= "viewAllCatalogsServlet">View all catalogs</a><br />
-<a href= "addVehiclesForCatalogServlet">Create a new catalog</a>
+<a href
 </body>
 </html>

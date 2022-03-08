@@ -17,7 +17,7 @@
 	<tr><td colspan= "3">Dealership: ${currentlist.cardealership.dealershipName}</td></tr>
 	<c:forEach var= "listVal" items= "${currentlist.listOfModels}">
 		<tr><td></td><td colspan= "3">
-		${listVal.make}, ${listVal.model}, ${listVal.driveTrain}, ${listVal.price}, ${listVal.addToLot}
+		${listVal.make}, ${listVal.model}, ${listVal.driveTrain}, ${listVal.price}, ${listVal.addedToLot}
 		</td>
 	</tr>
 	</c:forEach>
@@ -27,7 +27,7 @@
 <input type= "submit" value= "delete" name= "doThisToList">
 <input type= "submit" value= "add" name= "doThisToList">
 </form>
-<a href= "addVehiclesForCatalogServlet"></a>
+<a href= "addVehiclesForCatalogServlet">ad vehicles for catalog</a>
 <a href = "modelIndex.jsp">Insert a new vehicle</a>
 </body>
 </html>
