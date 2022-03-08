@@ -91,12 +91,12 @@ public class VehicleModelHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
-	public LocalDate stringToDate(String date) {
+	//public LocalDate stringToDate(String date) {
 		//use this before creating a new VehicleModel
 		//accepts mm/dd/yyyy to convert to localdate for use in converter then table
-		LocalDate newDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
-		return newDate;
-	}
+		//LocalDate newDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+		//return newDate;
+	//}
 	public void cleanUp() {
 		emfactory.close();
 	}

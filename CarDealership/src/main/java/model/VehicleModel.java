@@ -51,15 +51,15 @@ public class VehicleModel{
 	private String price;
 	
 	@Column(name="DateAdded")
-	@Convert(converter = LocalDateAttributeConverter.class)
-	private LocalDate addedToLot;
+	//@Convert(converter = LocalDateAttributeConverter.class)
+	private String addedToLot;
 
 	
 	//TODO figure out how to link the two ^*/
 	public VehicleModel() {
 		super();
 	}
-	public VehicleModel(String model, String make, String driveTrain, String price, LocalDate addedToLot) {
+	public VehicleModel(String model, String make, String driveTrain, String price, String addedToLot) {
 		this.model = model;
 		this.make = make;
 		this.driveTrain = driveTrain;
@@ -97,10 +97,10 @@ public class VehicleModel{
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public LocalDate getAddedToLot() {
+	public String getAddedToLot() {
 		return addedToLot;
 	}
-	public void setAddedToLot(LocalDate addedToLot) {
+	public void setAddedToLot(String addedToLot) {
 		this.addedToLot = addedToLot;
 	}
 	//removed some variables just to make the project simpler

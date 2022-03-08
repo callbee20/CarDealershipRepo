@@ -5,6 +5,7 @@
 		<class>model.VehicleModel</class>
 		<class>controller.LocalDateAttributeConverter</class>
 		<class>model.CarDealership</class>
+		<class>model.DealershipCatalog</class>
 		<properties>
 			<property name="eclipselink.ddl-generation" value="create-tables"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

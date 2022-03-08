@@ -37,7 +37,7 @@ public class AddDealerServlet extends HttpServlet {
 		
 		CarDealershipHelper carHelp = new CarDealershipHelper();
 		//always pass the date thru the vmh converter
-		CarDealership lot = new CarDealership(dealershipName, city, carHelp.stringToDate(established));
+		CarDealership lot = new CarDealership(dealershipName, city, established);
 		carHelp.addLot(lot);
 		
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
