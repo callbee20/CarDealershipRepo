@@ -7,6 +7,7 @@ package controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,12 +21,12 @@ public class CarDealershipHelper {
 	public CarDealershipHelper() {
 		
 	}
-	public LocalDate stringToDate(String date) {
+	//public LocalDate stringToDate(String date) {
 		//use this before creating a new VehicleModel
 		//accepts mm/dd/yyyy to convert to localdate for use in converter then table
-		LocalDate newDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
-		return newDate;
-	}
+		//LocalDate newDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+		//return newDate;
+	//}
 	
 	public void addLot(CarDealership lot) {
 		EntityManager em = emfactory.createEntityManager();
@@ -34,5 +35,13 @@ public class CarDealershipHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+	public List<CarDealership> showAllLots(){
+		EntityManager em = emfactory.createEntityManager();
+		List<CarDealership> allLots = em.createQuery("SELECT l FROM CarDealership l").getResultList();
+		return allLots;
+	}
+	
+	
 	
 }

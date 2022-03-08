@@ -34,8 +34,8 @@ public class CarDealership {
 	@Column(name="City")
 	private String city;
 	@Column(name="established")
-	@Convert(converter = LocalDateAttributeConverter.class)
-	private LocalDate established;
+	//@Convert(converter = LocalDateAttributeConverter.class)
+	private String established;
 	@JoinColumn(name="Vehicles")
 	private List<VehicleModel> vehicleList;
 	
@@ -43,7 +43,11 @@ public class CarDealership {
 		super();
 	}
 	
-	public CarDealership(int lotId, String dealershipName, String city, LocalDate established) {
+	public CarDealership(String dealershipName) {
+		this.dealershipName = dealershipName;
+	}
+	
+	public CarDealership(int lotId, String dealershipName, String city, String established) {
 		super();
 		this.lotId = lotId;
 		this.dealershipName = dealershipName;
@@ -51,7 +55,7 @@ public class CarDealership {
 		this.established = established;
 	}
 	
-	public CarDealership(String dealershipName, String city, LocalDate established) {
+	public CarDealership(String dealershipName, String city, String established) {
 		super();
 		this.dealershipName = dealershipName;
 		this.city = city;
@@ -95,6 +99,13 @@ public class CarDealership {
 	public void setCity(String city) {
 		this.city = city;
 	}
+
+	@Override
+	public String toString() {
+		return "CarDealership [dealershipName=" + dealershipName + ", city=" + city + ", established=" + established
+				+ "]";
+	}
+	
 	
 	
 	

@@ -23,7 +23,7 @@ public class StartProgram {
 			String driveTrain = in.nextLine();
 			System.out.println("Enter a price for the vehicle: ");
 			String price = in.nextLine();
-			System.out.println("Enter the date the vehicle was added (mm/dd/yy): ");
+			System.out.println("Enter the date it was added: ");
 			String addedToLot = in.nextLine();
 
 			VehicleModel toAdd = new VehicleModel(model, make, driveTrain, price, addedToLot);
