@@ -25,6 +25,8 @@ import controller.LocalDateAttributeConverter;
 @Table(name="Dealerships")
 public class CarDealership {
 	
+	
+
 	@Id
 	@GeneratedValue
 	@Column(name="ID")
@@ -34,7 +36,6 @@ public class CarDealership {
 	@Column(name="City")
 	private String city;
 	@Column(name="established")
-	//@Convert(converter = LocalDateAttributeConverter.class)
 	private String established;
 	@JoinColumn(name="Vehicles")
 	private List<VehicleModel> vehicleList;
@@ -60,9 +61,22 @@ public class CarDealership {
 		this.dealershipName = dealershipName;
 		this.city = city;
 		this.established = established;
-		//TODO set up converter for this class just like the one in vehiclemodelhelper
 	}
-	
+	public String getEstablished() {
+		return established;
+	}
+
+	public void setEstablished(String established) {
+		this.established = established;
+	}
+
+	public List<VehicleModel> getVehicleList() {
+		return vehicleList;
+	}
+
+	public void setVehicleList(List<VehicleModel> vehicleList) {
+		this.vehicleList = vehicleList;
+	}
 	/**
 	 * @return the lotId
 	 */

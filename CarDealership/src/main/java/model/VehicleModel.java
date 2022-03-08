@@ -50,9 +50,10 @@ public class VehicleModel{
 	@Column(name="Price")
 	private String price;
 	
-	@Column(name="DateAdded")
-	//@Convert(converter = LocalDateAttributeConverter.class)
-	private String addedToLot;
+	
+	  @Column(name="DateAdded") 
+	  private String addedToLot;
+	
 
 	
 	//TODO figure out how to link the two ^*/
@@ -106,7 +107,7 @@ public class VehicleModel{
 	//removed some variables just to make the project simpler
 	@Override
 	public String toString() {
-		return "VehicleModel [brand=" + make + ", model=" + model + ", dateAdded=" + addedToLot.toString() + 
+		return "VehicleModel [brand=" + make + ", model=" + model + ", dateAdded=" + addedToLot+ 
 				", price=" + price + ", driveTrain=" + driveTrain;
 	}
 	}
